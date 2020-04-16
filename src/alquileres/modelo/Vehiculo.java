@@ -3,35 +3,20 @@
 package alquileres.modelo;
 
 
+import java.lang.StringBuilder;
+
+
 /**
- * Representa a un vehículo en alquiler
- * De esta clase no se crearán instancias
- * 
- * De un vehículo se conoce su matrícula, marca, modelo y el precio a pagar por
- * día de alquiler
- * 
- * Para todo vehículo se puede calcular su coste de alquiler que depende del nº
- * de días que se alquile (llamaremos a esta operación calcularPrecioAlquiler() )
- * 
- * Dos vehículos pueden compararse por su matrícula (es su orden natural)
- * 
- * Dos vehículos son iguales si además de pertenecer a la misma clase tienen la
- * misma matrícula
- * 
  * @author Daniel Mar�n Martos
  */
 
-public class Vehiculo
+public abstract class Vehiculo implements Comparable <Vehiculo>
 {
 	private String matricula;
 	private String marca;
 	private String modelo;
 	private double precioDia;
 
-	
-	/**
-	 * Constructor
-	 */
 	
 	public Vehiculo(String matricula, String marca, String modelo, double precioDia)
 	{
@@ -41,14 +26,71 @@ public class Vehiculo
 		this.precioDia = precioDia;
 	}
 
+
+	public String getMatricula()
+	{
+		return matricula;
+	}
+
+
+	public String getMarca()
+	{
+		return marca;
+	}
+
 	
-	/**
-	 * Redefinición de hashCode()
-	 */
+	public String getModelo()
+	{
+		return modelo;
+	}
+
+
+	public double getPrecioDia()
+	{
+		return precioDia;
+	}
+	
+	
+	public abstract double calcularPrecioAlquiler(int diasDeAlquiler);
+	
+	
+	public int compareTo(Vehiculo vehiculo)
+	{
+		return this.getMatricula().compareTo(vehiculo.getMatricula());
+	}
+	
+	
+	public boolean equals(Object object)
+	{
+		if (object == null) return false;
+		if (object == this) return true;
+		if (object.getClass() != this.getClass()) return false;
+
+		Vehiculo vehiculo = (Vehiculo) object;
+		
+		return vehiculo.getMatricula().equals(this.getMatricula());
+	}
+	
 	
 	@Override
 	public int hashCode()
 	{
 		return matricula.hashCode() * 13;
+	}
+	
+	
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(getClass().getSimpleName().toUpperCase()).append("\n");
+		
+		sb.append("Matr�cula: ").append(getMatricula()).append(" | ");
+		sb.append("Marca: ").append(getMarca()).append(" | ");
+		sb.append("Modelo: ").append(getModelo()).append("\n");
+		
+		sb.append("Precio d�a alquiler: ").append(getPrecioDia()).append("� | ");
+		
+		return sb.toString();
 	}
 }

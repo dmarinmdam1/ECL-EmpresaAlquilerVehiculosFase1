@@ -4,20 +4,52 @@ package alquileres.modelo;
 
 
 /**
- * Una furgoneta es un vehículo que añade la característica del volumen de carga
- * (valor de tipo double)
- * 
- * El coste de alquiler de una furgoneta no solo depende del nº de días de
- * alquiler
- * Tendrá un incremento que dependerá de su volumen de carga: hasta 5 m3
- * exclusive ( metros cúbicos) de volumen el incremento sobre el precio
- * final será de 10€, entre 5 y 10 (inclusive) el incremento sobre el precio
- * final será de 15€, si volumen > 10 el incremento sobre el precio final será de
- * 25€
- * 
  * @author Daniel Mar�n Martos
  */
 
-public class Furgoneta
+public class Furgoneta extends Vehiculo
 {
+	private double volumenDeCarga;
+	
+	
+	public Furgoneta(String matricula, String marca, String modelo, double precioDia, double volumenDeCarga)
+	{
+		super(matricula, marca, modelo, precioDia);
+		
+		this.volumenDeCarga = volumenDeCarga;
+	}
+
+
+	public double getVolumenDeCarga() {
+		return volumenDeCarga;
+	}
+
+
+	public void setVolumenDeCarga(double volumenDeCarga)
+	{
+		this.volumenDeCarga = volumenDeCarga;
+	}
+	
+
+	public double calcularPrecioAlquiler(int diasDeAlquiler)
+	{
+		if(volumenDeCarga < 5)
+		{
+			return (getPrecioDia() + 10) * diasDeAlquiler;
+		}
+		
+		if(volumenDeCarga > 10)
+		{
+			return (getPrecioDia() + 15) * diasDeAlquiler;
+		}
+		
+		return (getPrecioDia() + 25) * diasDeAlquiler;
+	}
+	
+
+	public String toString()
+	{
+		return super.toString() + "Volumen: " + volumenDeCarga + " (m3)";
+	}
 }
+
