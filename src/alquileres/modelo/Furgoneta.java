@@ -1,4 +1,8 @@
 
+
+package alquileres.modelo;
+
+
 /**
  * Una furgoneta es un vehículo que añade la característica del volumen de carga
  * (valor de tipo double)
@@ -12,6 +16,6 @@
  * 25€
  * 
  */
-public class Furgoneta {
-
+public class Furgoneta
+{
 }

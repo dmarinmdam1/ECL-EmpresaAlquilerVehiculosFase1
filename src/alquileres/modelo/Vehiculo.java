@@ -1,4 +1,8 @@
 
+
+package alquileres.modelo;
+
+
 /**
  * Representa a un vehículo en alquiler
  * De esta clase no se crearán instancias
@@ -22,24 +26,26 @@ public class Vehiculo
 	private String modelo;
 	private double precioDia;
 
+	
 	/**
 	 * Constructor
 	 */
-	public Vehiculo(String matricula, String marca, String modelo,
-	        double precioDia) {
+	public Vehiculo(String matricula, String marca, String modelo, double precioDia)
+	{
 		this.matricula = matricula.toUpperCase();
 		this.marca = marca.toUpperCase();
 		this.modelo = modelo.toUpperCase();
 		this.precioDia = precioDia;
 	}
 
+	
 	/**
 	 * Redefinición de hashCode()
 	 * 
 	 */
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		return matricula.hashCode() * 13;
 	}
-
 }
