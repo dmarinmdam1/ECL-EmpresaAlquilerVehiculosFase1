@@ -15,7 +15,8 @@
  * misma matrícula
  * 
  */
-public class Vehiculo {
+public class Vehiculo
+{
 	private String matricula;
 	private String marca;
 	private String modelo;
@@ -30,7 +31,6 @@ public class Vehiculo {
 		this.marca = marca.toUpperCase();
 		this.modelo = modelo.toUpperCase();
 		this.precioDia = precioDia;
-
 	}
 
 	/**
