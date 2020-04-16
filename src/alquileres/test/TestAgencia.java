@@ -35,7 +35,7 @@ public class TestAgencia
 	{
 		int dias = 7;
 		
-		System.out.println("Coches de alquiler en la agencia\n");
+		System.out.println("Coches de alquiler en la agencia");
 		System.out.println(agencia.buscarCoches(dias));
 		System.out.println();
 		
@@ -45,12 +45,13 @@ public class TestAgencia
 	
 	public void testCochesOrdenadosMatricula()
 	{
-		System.out.println("Coches de m√°s de 4 plazas ordenados por matr√≠cula (de < a >)\n");
+		System.out.println("Coches de m·s de 4 plazas ordenados por matrÌcula (de < a >)\n");
 		
 		for (Coche coche : agencia.cochesOrdenadosMatricula())
 		{
 			System.out.println(coche.toString());
-			System.out.println("--------------------");
+			System.out.print("-----------------------------------------------------");
+			System.out.println("\n");
 		}
 		
 		hacerPausa();
@@ -64,10 +65,8 @@ public class TestAgencia
 		for (Furgoneta furgoneta : agencia.furgonetasOrdenadasPorVolumen())
 		{
 			System.out.println(furgoneta.toString());
-			System.out.println("--------------------");
+			System.out.println("-----------------------------------------------------\n");
 		}
-		
-		System.out.println();
 		
 		hacerPausa();
 	}
@@ -75,13 +74,13 @@ public class TestAgencia
 	
 	public void testMarcasConModelos()
 	{
-		System.out.println("Marcas y modelos de veh√≠culos por marca\n");
+		System.out.println("Marcas y modelos de vehÌculos por marca\n");
 		
 		Map<String, Set<String>> marcasModelos = agencia.marcasConModelos();
 		
 		for (Map.Entry<String, Set<String>> entrada : marcasModelos.entrySet())
 		{
-			System.out.println("Marca: " + entrada.getKey() + "\n\tModelos : " + entrada.getValue());
+			System.out.println("Marca: " + entrada.getKey() + "\n       Modelos : " + entrada.getValue());
 		}
 	}
 
@@ -103,12 +102,22 @@ public class TestAgencia
 		if(args.length != 1)
 		{
 			System.out.println("Error en n∫ argumentos");
-			System.out.println("Sintaxis: java TestAgencia <nombre-agencia>");
+			System.out.println("Sintaxis: java TestAgencia <nombre-agencia>\n");
+			
+			System.out.println("-----------------------------------------------------\n");
+			
+			TestAgencia test = new TestAgencia("Rent-A-Car");
+	
+			test.testBuscarCoches();
+			test.testCochesOrdenadosMatricula();
+			test.testFurgonetasOrdenadasPorVolumen();
+	
+			test.testMarcasConModelos();
 		}
 		else
 		{
-			TestAgencia test = new TestAgencia("Rent-A-Car");
-	
+			TestAgencia test = new TestAgencia(args[0]);
+			
 			test.testBuscarCoches();
 			test.testCochesOrdenadosMatricula();
 			test.testFurgonetasOrdenadasPorVolumen();

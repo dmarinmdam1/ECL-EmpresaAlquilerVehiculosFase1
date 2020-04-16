@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.Comparator;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Collections;
 
 
 /**
@@ -41,9 +42,9 @@ public class AgenciaAlquiler
 	{
 		String[] datosSeparados = lineaDatos.split(",");
 		
-		for(String dato : datosSeparados)
+		for(int i = 0; i < datosSeparados.length; i++)
 		{
-			dato = dato.trim();
+			datosSeparados[i] = datosSeparados[i].trim();
 		}
 		
 		if(datosSeparados[0].equalsIgnoreCase("F"))
@@ -94,7 +95,7 @@ public class AgenciaAlquiler
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("Vehículos en alquiler de la agencia ").append(nombre).append("\n");
-		sb.append("Total vehículos: ").append(flota.size()).append("\n");
+		sb.append("Total vehículos: ").append(flota.size()).append("\n\n");
 
 		for(Vehiculo vehiculo : flota)
 		{
@@ -110,15 +111,13 @@ public class AgenciaAlquiler
 	{
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("Coches de alquiler en la agencia\n");
-		
 		for(Vehiculo vehiculo: flota)
 		{
 			if(vehiculo instanceof Coche)
 			{
-				sb.append(vehiculo.toString()).append("\n");
-				sb.append("Coste alquiler ").append(diasAAlquilar).append("días: ").append(vehiculo.calcularPrecioAlquiler(diasAAlquilar)).append("\n");
-				sb.append("-----------------------------------------------------\n");
+				sb.append("\n").append(vehiculo.toString()).append("\n");
+				sb.append("Coste alquiler ").append(diasAAlquilar).append(" días: ").append(vehiculo.calcularPrecioAlquiler(diasAAlquilar)).append("€").append("\n");
+				sb.append("-----------------------------------------------------");
 			}
 		}
 		
@@ -169,7 +168,7 @@ public class AgenciaAlquiler
 		
 		retorno.sort(Comparator.comparing(Furgoneta::getVolumenDeCarga));
 		
-		retorno.sort(Comparator.reverseOrder());
+		Collections.reverse(retorno);
 		
 		return retorno;
 	}
