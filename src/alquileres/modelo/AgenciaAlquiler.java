@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.lang.StringBuilder;
+import java.util.Iterator;
+import java.util.Comparator;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 
 /**
@@ -86,31 +91,118 @@ public class AgenciaAlquiler
 
 	public String toString()
 	{
-		return null;
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Vehículos en alquiler de la agencia ").append(nombre).append("\n");
+		sb.append("Total vehículos: ").append(flota.size()).append("\n");
+
+		for(Vehiculo vehiculo : flota)
+		{
+			sb.append(vehiculo.toString()).append("\n");
+			sb.append("-----------------------------------------------------\n");
+		}
+		
+		return sb.toString();
 	}
 
 	
-	public String buscarCoches()
+	public String buscarCoches(int diasAAlquilar)
 	{
-		return null;
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Coches de alquiler en la agencia\n");
+		
+		for(Vehiculo vehiculo: flota)
+		{
+			if(vehiculo instanceof Coche)
+			{
+				sb.append(vehiculo.toString()).append("\n");
+				sb.append("Coste alquiler ").append(diasAAlquilar).append("días: ").append(vehiculo.calcularPrecioAlquiler(diasAAlquilar)).append("\n");
+				sb.append("-----------------------------------------------------\n");
+			}
+		}
+		
+		return sb.toString();
 	}
 
 	
 	public List<Coche> cochesOrdenadosMatricula()
 	{
-		return null;
+		ArrayList <Coche> retorno = new ArrayList<>();
+		
+		Iterator <Vehiculo> it = flota.iterator();
+		
+		while(it.hasNext())
+		{
+			Vehiculo vehiculo = it.next();
+			
+			if(vehiculo instanceof Coche)
+			{
+				if(((Coche) vehiculo).getPlazas() > 4)
+				{
+					retorno.add((Coche) vehiculo);
+				}
+			}
+		}
+		
+		retorno.sort(Comparator.comparing(Coche::getMatricula));
+		
+		return retorno;
 	}
 
 	
 	public List<Furgoneta> furgonetasOrdenadasPorVolumen()
 	{
-		return null;
+		ArrayList<Furgoneta> retorno = new ArrayList<>();
+		
+		Iterator<Vehiculo> it = flota.iterator();
+		
+		while(it.hasNext())
+		{
+			Vehiculo vehiculo = it.next();
+			
+			if(vehiculo instanceof Furgoneta)
+			{
+				retorno.add((Furgoneta) vehiculo);
+			}
+		}
+		
+		retorno.sort(Comparator.comparing(Furgoneta::getVolumenDeCarga));
+		
+		retorno.sort(Comparator.reverseOrder());
+		
+		return retorno;
 	}
 
 	
 	public Map<String, Set<String>> marcasConModelos()
 	{
-		return null;
+		TreeMap<String, Set<String>> retorno = new TreeMap<>();
+		
+		Iterator<Vehiculo> it = flota.iterator();
+		
+		while(it.hasNext())
+		{
+			Vehiculo vehiculo = it.next();
+			
+			String marca = vehiculo.getMarca();
+			String modelo = vehiculo.getModelo();
+			
+			if(retorno.get(marca) == null)
+			{
+				TreeSet<String> nombres = new TreeSet<>();
+				
+				nombres.add(modelo);
+				
+				retorno.put(marca, nombres);
+			}
+			else
+			{
+				retorno.get(marca).add(modelo);
+			}
+		}
+		
+		return retorno;
 	}
 }
 

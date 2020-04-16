@@ -100,13 +100,21 @@ public class TestAgencia
 	
 	public static void main(String[] args)
 	{
-		TestAgencia test = new TestAgencia();
-
-		test.testBuscarCoches();
-		test.testCochesOrdenadosMatricula();
-		test.testFurgonetasOrdenadasPorVolumen();
-
-		test.testMarcasConModelos();
+		if(args.length != 1)
+		{
+			System.out.println("Error en nº argumentos");
+			System.out.println("Sintaxis: java TestAgencia <nombre-agencia>");
+		}
+		else
+		{
+			TestAgencia test = new TestAgencia("Rent-A-Car");
+	
+			test.testBuscarCoches();
+			test.testCochesOrdenadosMatricula();
+			test.testFurgonetasOrdenadasPorVolumen();
+	
+			test.testMarcasConModelos();
+		}
 	}
 }
 
