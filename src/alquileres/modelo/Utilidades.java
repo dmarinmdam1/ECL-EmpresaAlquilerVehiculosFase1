@@ -3,6 +3,10 @@
 package alquileres.modelo;
 
 
+/**
+ * @author Daniel Marín Martos
+ */
+
 public class Utilidades
 {
 	public static String[] obtenerLineasDatos()

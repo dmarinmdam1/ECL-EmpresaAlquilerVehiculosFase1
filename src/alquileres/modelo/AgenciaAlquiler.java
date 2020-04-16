@@ -15,7 +15,10 @@ import java.util.Set;
  * 
  * Los vehículos se modelan como un interface List que se instanciará como una
  * colección concreta ArrayList
+ * 
+ * @author Daniel Mar�n Martos
  */
+
 public class AgenciaAlquiler
 {
 	private String nombre; // el nombre de la agencia
@@ -27,6 +30,7 @@ public class AgenciaAlquiler
 	 * 
 	 * @param nombre el nombre de la agencia
 	 */
+	
 	public AgenciaAlquiler(String nombre)
 	{
 		this.nombre = nombre;
@@ -36,8 +40,8 @@ public class AgenciaAlquiler
 	
 	/**
 	 * añade un nuevo vehículo solo si no existe
-	 * 
 	 */
+	
 	public void addVehiculo()
 	{
 
@@ -52,10 +56,10 @@ public class AgenciaAlquiler
 	 * C,matricula,marca,modelo,precio,plazas para coches
 	 * F,matricula,marca,modelo,precio,volumen para furgonetas
 	 * 
-	 * 
 	 * Asumimos todos los datos correctos. Puede haber espacios antes y después
 	 * de cada dato
 	 */
+	
 	private Vehiculo obtenerVehiculo()
 	{
 		return null;
@@ -66,6 +70,7 @@ public class AgenciaAlquiler
 	 * La clase Utilidades nos devuelve un array con las líneas de datos
 	 * de la flota de vehículos  
 	 */
+	
 	public void cargarFlota()
 	{
 		String[] datos = Utilidades.obtenerLineasDatos();
@@ -93,6 +98,7 @@ public class AgenciaAlquiler
 	/**
 	 * Representación textual de la agencia
 	 */
+	
 	@Override
 	public String toString()
 	{
@@ -103,9 +109,9 @@ public class AgenciaAlquiler
 	/**
 	 * Busca todos los coches de la agencia
 	 * Devuelve un String con esta información y lo que
-	 * costaría alquilar cada coche el nº de días indicado * 
-	 *  
+	 * costaría alquilar cada coche el nº de días indicado *   
 	 */
+	
 	public String buscarCoches()
 	{
 		return null;
@@ -115,8 +121,8 @@ public class AgenciaAlquiler
 	/**
 	 * Obtiene y devuelve una lista de coches con más de 4 plazas ordenada por
 	 * matrícula - Hay que usar un iterador
-	 * 
 	 */
+	
 	public List<Coche> cochesOrdenadosMatricula()
 	{
 		return null;
@@ -126,8 +132,8 @@ public class AgenciaAlquiler
 	/**
 	 * Devuelve la relación de todas las furgonetas ordenadas de
 	 * mayor a menor volumen de carga
-	 * 
 	 */
+	
 	public List<Furgoneta> furgonetasOrdenadasPorVolumen()
 	{
 		return null;
@@ -139,6 +145,7 @@ public class AgenciaAlquiler
 	 * vehículos que hay en la agencia como claves y un conjunto (importa el orden) 
 	 * de los modelos en cada marca como valor asociado
 	 */
+	
 	public Map<String, Set<String>> marcasConModelos()
 	{
 		return null;

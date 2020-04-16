@@ -8,7 +8,10 @@ package alquileres.modelo;
  * 
  * El coste final de alquiler depende no solo del nº de días de alquiler 
  * sino también del nº de plazas. Si el nº de plazas es > 4 se añaden 5€ más por día
+ * 
+ * @author Daniel Mar�n Martos
  */
+
 public class Coche
 {
 }

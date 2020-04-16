@@ -15,7 +15,9 @@ package alquileres.modelo;
  * final será de 15€, si volumen > 10 el incremento sobre el precio final será de
  * 25€
  * 
+ * @author Daniel Mar�n Martos
  */
+
 public class Furgoneta
 {
 }

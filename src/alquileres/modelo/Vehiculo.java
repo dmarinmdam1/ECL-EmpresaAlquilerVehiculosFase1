@@ -18,7 +18,9 @@ package alquileres.modelo;
  * Dos vehículos son iguales si además de pertenecer a la misma clase tienen la
  * misma matrícula
  * 
+ * @author Daniel Mar�n Martos
  */
+
 public class Vehiculo
 {
 	private String matricula;
@@ -30,6 +32,7 @@ public class Vehiculo
 	/**
 	 * Constructor
 	 */
+	
 	public Vehiculo(String matricula, String marca, String modelo, double precioDia)
 	{
 		this.matricula = matricula.toUpperCase();
@@ -41,8 +44,8 @@ public class Vehiculo
 	
 	/**
 	 * Redefinición de hashCode()
-	 * 
 	 */
+	
 	@Override
 	public int hashCode()
 	{

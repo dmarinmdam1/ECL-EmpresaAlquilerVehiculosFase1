@@ -12,8 +12,9 @@ import alquileres.modelo.Furgoneta;
 
 
 /**
- *    
+ * @author Daniel Mar�n Martos
  */
+
 public class TestAgencia
 {
 	private AgenciaAlquiler agencia;
@@ -23,6 +24,7 @@ public class TestAgencia
 	 * Constructor demo cargarFlota(), obtenerVehiculo(), addVehiculo()
 	 * demo toString()
 	 */
+	
 	public TestAgencia(String nombre)
 	{
 		agencia = new AgenciaAlquiler(nombre);
@@ -37,6 +39,7 @@ public class TestAgencia
 	/**
 	 * test buscarCoches()
 	 */
+	
 	public void testBuscarCoches()
 	{
 		int dias = 7;
@@ -52,6 +55,7 @@ public class TestAgencia
 	/**
 	 * demo cochesOrdenadosMatricula()
 	 */
+	
 	public void testCochesOrdenadosMatricula()
 	{
 		System.out.println("Coches de más de 4 plazas ordenados por matrícula (de < a >)\n");
@@ -69,6 +73,7 @@ public class TestAgencia
 	/**
 	 * demo furgonetasOrdenadasPorVolumen()
 	 */
+	
 	public void testFurgonetasOrdenadasPorVolumen()
 	{
 		System.out.println("Furgonetas ordenadas de mayor a menor volumen\n");
@@ -88,6 +93,7 @@ public class TestAgencia
 	/**
 	 * demo marcasConModelos()
 	 */
+	
 	public void testMarcasConModelos()
 	{
 		System.out.println("Marcas y modelos de vehículos por marca\n");
@@ -104,6 +110,7 @@ public class TestAgencia
 	/**
 	 * hacer una pausa en la salida por pantalla
 	 */
+	
 	public void hacerPausa()
 	{
 		@SuppressWarnings("resource")
@@ -119,6 +126,7 @@ public class TestAgencia
 	/**
 	 * inicio de la aplicación
 	 */
+	
 	public static void main(String[] args)
 	{
 		TestAgencia test = new TestAgencia();
