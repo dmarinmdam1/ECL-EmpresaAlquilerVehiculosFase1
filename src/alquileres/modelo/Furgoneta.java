@@ -33,17 +33,9 @@ public class Furgoneta extends Vehiculo
 
 	public double calcularPrecioAlquiler(int diasDeAlquiler)
 	{
-		if(volumenDeCarga < 5)
-		{
-			return (getPrecioDia() + 10) * diasDeAlquiler;
-		}
-		
-		if(volumenDeCarga > 10)
-		{
-			return (getPrecioDia() + 15) * diasDeAlquiler;
-		}
-		
-		return (getPrecioDia() + 25) * diasDeAlquiler;
+		if(volumenDeCarga <   5) return (getPrecioDia() + 10) * diasDeAlquiler;
+		if(volumenDeCarga <= 10) return (getPrecioDia() + 15) * diasDeAlquiler;
+								 return (getPrecioDia() + 25) * diasDeAlquiler;
 	}
 	
 
