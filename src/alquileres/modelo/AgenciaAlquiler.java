@@ -15,8 +15,8 @@ import java.util.Set;
 
 public class AgenciaAlquiler
 {
-	private String nombre; // el nombre de la agencia
-	private List<Vehiculo> flota; // la lista de vehículos
+	private String nombre;
+	private List <Vehiculo> flota;
 
 	
 	public AgenciaAlquiler(String nombre)
@@ -26,15 +26,37 @@ public class AgenciaAlquiler
 	}
 
 	
-	public void addVehiculo()
+	public void addVehiculo(Vehiculo vehiculo)
 	{
-
+		if(!flota.contains(vehiculo)) flota.add(vehiculo);
 	}
 
 	
-	private Vehiculo obtenerVehiculo()
+	private Vehiculo obtenerVehiculo(String lineaDatos)
 	{
-		return null;
+		String[] datosSeparados = lineaDatos.split(",");
+		
+		for(String dato : datosSeparados)
+		{
+			dato = dato.trim();
+		}
+		
+		if(datosSeparados[0].equalsIgnoreCase("F"))
+		{
+			return new Furgoneta(datosSeparados[1].toUpperCase(),
+								 datosSeparados[2].toUpperCase(),
+								 datosSeparados[3].toUpperCase(),
+								 Double.parseDouble(datosSeparados[4]),
+								 Double.parseDouble(datosSeparados[5]));
+		}
+		else
+		{
+			return new Coche(datosSeparados[1].toUpperCase(),
+							 datosSeparados[2].toUpperCase(),
+							 datosSeparados[3].toUpperCase(),
+							 Double.parseDouble(datosSeparados[4]),
+					         Integer.parseInt(datosSeparados[5]));
+		}
 	}
 
 	
@@ -61,8 +83,7 @@ public class AgenciaAlquiler
 		}
 	}
 
-	
-	@Override
+
 	public String toString()
 	{
 		return null;

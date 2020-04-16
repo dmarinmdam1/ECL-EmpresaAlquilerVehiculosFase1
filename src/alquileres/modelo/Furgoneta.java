@@ -29,7 +29,7 @@ public class Furgoneta extends Vehiculo
 	{
 		this.volumenDeCarga = volumenDeCarga;
 	}
-	
+		
 
 	public double calcularPrecioAlquiler(int diasDeAlquiler)
 	{
